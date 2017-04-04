@@ -4,6 +4,7 @@
   "description": "language interpreter",
   "main": "liri.js",
   "dependencies": {
+    "spotify-web-api-node": "^2.3.6",
     "twitter": "^1.7.0"
   },
   "devDependencies": {},
