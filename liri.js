@@ -1,15 +1,26 @@
-var inquirer = require('inquirer');
-
 var twitter = require('twitter');
 var omdbApi = require('omdb-client');
 var spotify = require('spotify');
 var fs = require('fs');
+var keys = require('./keys.js');
 
 //node liri.js my-tweets
 processArgs(process.argv);
 
 function processArgs(args) {
   var command = args[2];
+
+  if(command === "my-tweets"){
+    var client = new twitter(keys);
+    client.get('search/tweets', {q: 'Valynhall', count: '20'}, function(error, tweets, response) {
+       console.log("");
+       for (i = 0; i<tweets.statuses.length; i++) {
+        console.log(tweets.statuses[i].created_at);
+        console.log(tweets.statuses[i].text);
+        console.log("");
+      }
+    });
+  }
 
 
   if(command === "spotify-this-song"){
