@@ -13,9 +13,9 @@ var fs = require('fs');
 processArgs(process.argv);
 
 function processArgs(args) {
-  
-  var command = args[2];
 
+  var command = args[2];
+// Twitter function
   if(command === "my-tweets"){
     var keys = require('./keys.js');
     var client = new twitter(keys);
@@ -29,7 +29,7 @@ function processArgs(args) {
     });
   }
 
-
+// Spotify function
   if(command === "spotify-this-song"){
     var song = args[3];
     if (song == "" || song == null) {
@@ -52,6 +52,7 @@ function processArgs(args) {
     });
   }
 
+//OMDB function
   if(command === "movie-this"){
     var movie = args[3];
     if (movie == "" || movie == null) {
@@ -78,6 +79,7 @@ function processArgs(args) {
     });
   }
 
+//Do What it says function
   if(command === "do-what-it-says"){
     fs.readFile("random.txt", "utf8", function(error, data) {
       var dataArr = ["node","liri.js"];
