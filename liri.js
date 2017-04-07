@@ -1,16 +1,23 @@
+//requiring twitter NP
 var twitter = require('twitter');
+//requiring omdb NP
 var omdbApi = require('omdb-client');
+//requiring spotify NP
 var spotify = require('spotify');
+//requiring fs
 var fs = require('fs');
-var keys = require('./keys.js');
 
-//node liri.js my-tweets
+
+
+
 processArgs(process.argv);
 
 function processArgs(args) {
+  
   var command = args[2];
 
   if(command === "my-tweets"){
+    var keys = require('./keys.js');
     var client = new twitter(keys);
     client.get('search/tweets', {q: 'Valynhall', count: '20'}, function(error, tweets, response) {
        console.log("");
